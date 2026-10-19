@@ -28,3 +28,12 @@ dist/
 .env
 .env.*
 !.env.example
+
+# Coverage output
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Local upgrade backups
+.repo-upgrade-backup/
