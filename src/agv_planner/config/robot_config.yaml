@@ -1,0 +1,14 @@
+robot:
+  drive_type: mecanum
+  wheel_radius_m: 0.04
+  wheelbase_m: 0.18
+  track_width_m: 0.29
+  footprint_length_m: 0.34
+  footprint_width_m: 0.30
+planning:
+  default_clearance_m: 0.20
+  algorithm: "A*"
+  unknown_cells_blocked: true
+ros:
+  pose_stale_seconds: 1.5
+  max_start_distance_m: 0.25
