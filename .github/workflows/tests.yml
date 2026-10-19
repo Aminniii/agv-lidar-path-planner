@@ -27,7 +27,7 @@ jobs:
         env:
           PYTEST_DISABLE_PLUGIN_AUTOLOAD: '1'
         run: |
-          python -m pytest -q \
+          python -m pytest -p pytest_cov -q \
             --cov=agv_planner \
             --cov-report=term-missing \
             --cov-report=xml:coverage.xml \
