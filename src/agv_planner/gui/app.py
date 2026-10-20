@@ -1348,8 +1348,8 @@ class PathPlannerGUI:
         boundaries.append(len(pixels) - 1)
         segments = []
         for a, b in zip(boundaries, boundaries[1:]):
-            if b <= a:
-                raise ValueError("Invalid zero-length segment; adjust the stops.")
+            if b <= a or b >= len(full_path.poses):
+                raise ValueError("Invalid Nav2 segment or incomplete ROS path; re-plan the route.")
             segment = RosPath()
             segment.header = full_path.header
             segment.poses = list(full_path.poses[a:b + 1])
@@ -1604,6 +1604,11 @@ class PathPlannerGUI:
 
             return
 
+        # Invalid map metadata must not cause divisions by zero during rendering.
+        if self.resolution is None or self.resolution <= 0:
+            self.canvas.delete("all")
+            return
+
         display = (
             self.original_map.convert(
                 "RGB"
@@ -1771,15 +1776,14 @@ class PathPlannerGUI:
         )
 
         # Metric scale bar: target around 100 source pixels.
-        if self.resolution:
-            target_m = 100 * self.resolution
-            power = 10 ** math.floor(math.log10(max(target_m, 1e-9)))
-            scale_m = min((1, 2, 5, 10), key=lambda n: abs(n*power-target_m)) * power
-            bar_px = max(1, round(scale_m/self.resolution))
-            bx, by = 16, self.map_height - 18
-            draw.line(((bx, by), (bx+bar_px, by)), fill=(0,0,0), width=5)
-            draw.line(((bx, by), (bx+bar_px, by)), fill=(255,255,255), width=3)
-            draw.text((bx, by-17), f"{scale_m:g} m", fill=(0,0,0), stroke_width=2, stroke_fill="white")
+        target_m = 100 * self.resolution
+        power = 10 ** math.floor(math.log10(max(target_m, 1e-9)))
+        scale_m = min((1, 2, 5, 10), key=lambda n: abs(n*power-target_m)) * power
+        bar_px = max(1, round(scale_m/self.resolution))
+        bx, by = 16, self.map_height - 18
+        draw.line(((bx, by), (bx+bar_px, by)), fill=(0,0,0), width=5)
+        draw.line(((bx, by), (bx+bar_px, by)), fill=(255,255,255), width=3)
+        draw.text((bx, by-17), f"{scale_m:g} m", fill=(0,0,0), stroke_width=2, stroke_fill="white")
 
         display = display.resize(
             (
@@ -1866,8 +1870,7 @@ class PathPlannerGUI:
         self.canvas.yview_moveto(max(0, ((old_y-old_offset_y)*self.scale/old_scale+self.map_offset_y-event.y) / max(1,max(new_h,self.canvas.winfo_height()))))
 
     def zoom_center(self, factor):
-        class Event: pass
-        event = Event()
+        event = type("Event", (), {})()
         event.x = self.canvas.winfo_width() // 2
         event.y = self.canvas.winfo_height() // 2
         self.zoom_at(event, factor)
