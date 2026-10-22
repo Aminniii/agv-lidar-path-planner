@@ -14,10 +14,7 @@ from scipy.ndimage import distance_transform_edt
 from agv_planner.config.settings import load_settings
 from agv_planner.core import (
     adaptive_reduce_path,
-    angle_difference,
     approach,
-    astar,
-    clear_segment,
     compact_path,
     heuristic,
     inflate_free_grid,
@@ -25,7 +22,6 @@ from agv_planner.core import (
     mecanum_wheel_rates,
     mega_bridge_mix,
     optimized_search,
-    search_path,
     simplify_path,
     smooth_corners,
     virtual_mega_wheel_targets,
