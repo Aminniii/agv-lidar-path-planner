@@ -1,5 +1,4 @@
 """Integration-style headless route, drawing, viewport and obstacle regressions."""
-import math
 from types import SimpleNamespace as S
 from unittest.mock import Mock, patch
 

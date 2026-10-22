@@ -1,5 +1,4 @@
 """Offline TF polling regressions; never starts ROS, Tk, or motors."""
-import math
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
 

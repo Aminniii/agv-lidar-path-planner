@@ -9,7 +9,6 @@ from agv_planner.planning.algorithms import (
     inflate_free_grid,
     mecanum_body_velocity,
     mecanum_wheel_rates,
-    optimized_search,
     search_path,
     smooth_corners,
 )

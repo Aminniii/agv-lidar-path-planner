@@ -1,6 +1,5 @@
 """Headless tests for coordinate conversions in the existing GUI class."""
 import math
-from types import SimpleNamespace
 
 import pytest
 

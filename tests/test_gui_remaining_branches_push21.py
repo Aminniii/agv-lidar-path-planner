@@ -1,11 +1,8 @@
 """Target genuine GUI branches with no robot transport or ROS runtime."""
-from pathlib import Path
 from types import SimpleNamespace as NS
 from unittest.mock import Mock, patch
 
-import numpy as np
 from PIL import Image
-from test_gui_render_branches_push20 import gui_for_redraw
 from test_simulation_loop_extended import gui, tick
 
 from agv_planner.gui import app
