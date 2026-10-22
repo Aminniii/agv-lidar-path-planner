@@ -1,5 +1,12 @@
 import numpy as np
-from agv_planner.planning.proximity import (footprint_is_free,swept_footprint_is_free,obstacle_distance_field,nearest_obstacle_distance)
+
+from agv_planner.planning.proximity import (
+    footprint_is_free,
+    nearest_obstacle_distance,
+    obstacle_distance_field,
+    swept_footprint_is_free,
+)
+
 
 def test_empty_room():
     g=np.ones((80,80),dtype=bool)

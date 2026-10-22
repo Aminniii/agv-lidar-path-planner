@@ -2,11 +2,13 @@
 from pathlib import Path
 from types import SimpleNamespace as NS
 from unittest.mock import Mock, patch
+
 import numpy as np
 from PIL import Image
-from agv_planner.gui import app
-from test_simulation_loop_extended import gui, tick
 from test_gui_render_branches_push20 import gui_for_redraw
+from test_simulation_loop_extended import gui, tick
+
+from agv_planner.gui import app
 
 
 def test_absolute_map_image_path(tmp_path):

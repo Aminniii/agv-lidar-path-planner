@@ -1,8 +1,10 @@
 """Real YAML serialization and export guards, without GUI dialogs."""
 from types import SimpleNamespace
-from unittest.mock import Mock,patch
-import yaml
+from unittest.mock import Mock, patch
+
 import pytest
+import yaml
+
 from agv_planner.gui.app import PathPlannerGUI
 from agv_planner.planning.safety import UnsafePathError
 

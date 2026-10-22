@@ -4,8 +4,9 @@ from unittest.mock import Mock, patch
 
 import numpy as np
 import pytest
-from agv_planner.gui.app import PathPlannerGUI
+
 from agv_planner.gui import app
+from agv_planner.gui.app import PathPlannerGUI
 
 
 def make_gui(mode='start', free=True):

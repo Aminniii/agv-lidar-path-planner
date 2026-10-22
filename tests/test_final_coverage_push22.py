@@ -1,11 +1,13 @@
 """Cover remaining real branches without using physical robot hardware."""
+import runpy
 from pathlib import Path
 from types import SimpleNamespace as NS
 from unittest.mock import Mock, patch
-import runpy
+
 import pytest
-from agv_planner.gui import app
 from test_gui_render_branches_push20 import gui_for_redraw
+
+from agv_planner.gui import app
 
 
 def test_gui_module_ros_available_import_branch():

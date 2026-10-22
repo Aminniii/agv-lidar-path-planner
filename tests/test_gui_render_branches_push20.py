@@ -1,8 +1,10 @@
 """Exercise unusual GUI rendering branches without ROS or physical motors."""
 from types import SimpleNamespace as NS
 from unittest.mock import Mock, patch
-from PIL import Image
+
 import pytest
+from PIL import Image
+
 from agv_planner.gui import app
 
 

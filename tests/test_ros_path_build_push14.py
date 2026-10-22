@@ -2,7 +2,9 @@
 import math
 from types import SimpleNamespace as NS
 from unittest.mock import Mock, patch
+
 import pytest
+
 from agv_planner.gui.app import PathPlannerGUI
 
 

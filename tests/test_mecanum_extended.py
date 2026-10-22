@@ -1,11 +1,16 @@
 """Deterministic offline tests of the existing mecanum and Mega command math."""
 import math
+
 import numpy as np
 import pytest
 
 from agv_planner.simulation.kinematics import (
-    mega_bridge_mix, virtual_mega_wheel_targets, mecanum_body_velocity,
-    mecanum_wheel_rates, angle_difference, approach,
+    angle_difference,
+    approach,
+    mecanum_body_velocity,
+    mecanum_wheel_rates,
+    mega_bridge_mix,
+    virtual_mega_wheel_targets,
 )
 
 RADIUS = 0.04

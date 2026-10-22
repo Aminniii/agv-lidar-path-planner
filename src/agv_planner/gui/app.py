@@ -1,25 +1,47 @@
-import tkinter as tk
-from tkinter import ttk, messagebox, filedialog
 import heapq
 import itertools
 import math
 import time
+import tkinter as tk
 from collections import deque
 from pathlib import Path
+from tkinter import filedialog, messagebox, ttk
 
 import numpy as np
 import yaml
+from PIL import Image, ImageDraw, ImageTk
 from scipy.ndimage import distance_transform_edt
-from PIL import Image, ImageTk, ImageDraw
 
-from agv_planner.core import (heuristic, astar, clear_segment, simplify_path, inflate_free_grid,
-                   search_path, optimized_search, compact_path, smooth_corners,
-                   adaptive_reduce_path, mega_bridge_mix, virtual_mega_wheel_targets,
-                   mecanum_body_velocity, angle_difference, approach, mecanum_wheel_rates)
-from agv_planner.ros_support import load_ros_dependencies
 from agv_planner.config.settings import load_settings
-from agv_planner.planning.safety import validate_route, validate_footprint_clearance, UnsafePathError
-from agv_planner.planning.proximity import obstacle_distance_field, nearest_obstacle_distance, swept_footprint_is_free
+from agv_planner.core import (
+    adaptive_reduce_path,
+    angle_difference,
+    approach,
+    astar,
+    clear_segment,
+    compact_path,
+    heuristic,
+    inflate_free_grid,
+    mecanum_body_velocity,
+    mecanum_wheel_rates,
+    mega_bridge_mix,
+    optimized_search,
+    search_path,
+    simplify_path,
+    smooth_corners,
+    virtual_mega_wheel_targets,
+)
+from agv_planner.planning.proximity import (
+    nearest_obstacle_distance,
+    obstacle_distance_field,
+    swept_footprint_is_free,
+)
+from agv_planner.planning.safety import (
+    UnsafePathError,
+    validate_footprint_clearance,
+    validate_route,
+)
+from agv_planner.ros_support import load_ros_dependencies
 
 ROS_AVAILABLE, ROS_ERROR, ros = load_ros_dependencies()
 if ROS_AVAILABLE:

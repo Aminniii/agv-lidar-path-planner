@@ -10,6 +10,7 @@ from unittest.mock import patch
 import numpy as np
 import pytest
 from PIL import Image
+
 from agv_planner.gui import app
 
 

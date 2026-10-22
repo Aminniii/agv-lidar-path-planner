@@ -1,6 +1,7 @@
 """ROS-independent occupancy-grid planning and mecanum math."""
 import heapq
 import math
+
 import numpy as np
 from scipy.ndimage import distance_transform_edt
 

@@ -1,7 +1,9 @@
 """Conservative continuous rectangular-footprint collision checks for offline simulation."""
 import math
+
 import numpy as np
 from scipy.ndimage import distance_transform_edt
+
 
 def obstacle_distance_field(free_grid, resolution):
     if resolution <= 0 or not math.isfinite(resolution):

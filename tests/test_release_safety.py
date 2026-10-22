@@ -1,7 +1,8 @@
 import numpy as np
 import pytest
+
 from agv_planner.planning.proximity import footprint_is_free, swept_footprint_is_free
-from agv_planner.planning.safety import validate_route, UnsafePathError
+from agv_planner.planning.safety import UnsafePathError, validate_route
 from agv_planner.ros.support import load_ros_dependencies
 
 

@@ -2,8 +2,16 @@
 import numpy as np
 import pytest
 from scipy.ndimage import distance_transform_edt
-from agv_planner.planning.algorithms import (search_path, optimized_search, clear_segment,
-    simplify_path, compact_path, inflate_free_grid)
+
+from agv_planner.planning.algorithms import (
+    clear_segment,
+    compact_path,
+    inflate_free_grid,
+    optimized_search,
+    search_path,
+    simplify_path,
+)
+
 
 @pytest.mark.parametrize('algorithm', ['A*', 'Dijkstra', 'Theta*'])
 def test_start_equals_goal(algorithm):
