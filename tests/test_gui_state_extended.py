@@ -1,8 +1,10 @@
 """Headless GUI-state regressions: no Tk window or ROS hardware required."""
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
+
 import numpy as np
 import pytest
+
 from agv_planner.gui.app import PathPlannerGUI
 
 

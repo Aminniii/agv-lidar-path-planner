@@ -1,9 +1,11 @@
 """Deterministic, headless tests of the actual GUI simulation tick."""
+import math
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
-import math
+
 import numpy as np
 import pytest
+
 from agv_planner.gui.app import PathPlannerGUI
 
 

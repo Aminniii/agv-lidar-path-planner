@@ -1,6 +1,7 @@
 """Headless tests for coordinate conversions in the existing GUI class."""
 import math
 from types import SimpleNamespace
+
 import pytest
 
 from agv_planner.gui.app import PathPlannerGUI

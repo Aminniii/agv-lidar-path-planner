@@ -1,7 +1,9 @@
 """Additional deterministic path-planning boundary regressions (offline only)."""
-import numpy as np
 from unittest.mock import patch
-from agv_planner.planning.algorithms import optimized_search, compact_path
+
+import numpy as np
+
+from agv_planner.planning.algorithms import compact_path, optimized_search
 
 
 def test_clearance_search_disallows_diagonal_corner_cutting():

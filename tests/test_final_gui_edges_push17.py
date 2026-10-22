@@ -1,8 +1,10 @@
 """Additional isolated boundary tests; never connects to a robot."""
 from types import SimpleNamespace as NS
 from unittest.mock import Mock, patch
+
 import numpy as np
 import pytest
+
 from agv_planner.gui.app import PathPlannerGUI
 
 
@@ -40,6 +42,7 @@ def test_nav2_segment_rejects_zero_length_final_segment():
 def test_update_wheel_bars_ignores_invalid_rate_in_real_gui():
     import tkinter as tk
     from pathlib import Path
+
     from agv_planner.gui import app
     root = tk.Tk()
     try:
@@ -55,6 +58,7 @@ def test_update_wheel_bars_ignores_invalid_rate_in_real_gui():
 @pytest.mark.parametrize('raises', [False, True])
 def test_startup_auto_map_load_success_and_warning(tmp_path, raises):
     import tkinter as tk
+
     from agv_planner.gui import app
     root = tk.Tk()
     map_file = tmp_path/'exists.yaml'
@@ -74,8 +78,9 @@ def test_startup_auto_map_load_success_and_warning(tmp_path, raises):
 
 def test_startup_with_mock_ros_components():
     import tkinter as tk
-    from agv_planner.gui import app
     from pathlib import Path
+
+    from agv_planner.gui import app
     root=tk.Tk()
     ros=Mock()
     ros.ok.return_value=False

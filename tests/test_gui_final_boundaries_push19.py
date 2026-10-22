@@ -1,8 +1,10 @@
 """Focused GUI planning and simulation regressions, without real ROS or motors."""
 from types import SimpleNamespace as NS
 from unittest.mock import Mock, patch
+
 import numpy as np
 import pytest
+
 from agv_planner.gui import app
 
 

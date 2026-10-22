@@ -1,10 +1,12 @@
 """ROS map loading integration regressions without creating a Tk window."""
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
+
 import numpy as np
 import pytest
 import yaml
 from PIL import Image
+
 from agv_planner.gui.app import PathPlannerGUI
 
 

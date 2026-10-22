@@ -1,9 +1,11 @@
 """Headless regressions for viewport, virtual obstacles and route statistics."""
+import math
 from types import SimpleNamespace as NS
 from unittest.mock import Mock, patch
-import math
+
 import numpy as np
 import pytest
+
 from agv_planner.gui.app import PathPlannerGUI
 
 

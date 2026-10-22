@@ -1,7 +1,9 @@
 """Headless GUI window-control regressions; no Tk window or robot required."""
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
+
 import pytest
+
 from agv_planner.gui.app import PathPlannerGUI
 
 

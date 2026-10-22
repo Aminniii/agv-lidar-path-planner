@@ -1,11 +1,14 @@
 """Integration-style headless route, drawing, viewport and obstacle regressions."""
+import math
 from types import SimpleNamespace as S
 from unittest.mock import Mock, patch
-import math
+
 import numpy as np
 import pytest
 from PIL import Image
+
 from agv_planner.gui.app import PathPlannerGUI
+
 
 class V:
     def __init__(self,v): self.v=v

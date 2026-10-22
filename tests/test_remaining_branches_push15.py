@@ -2,11 +2,19 @@
 import runpy
 from types import SimpleNamespace as NS
 from unittest.mock import Mock, patch
+
 import numpy as np
 import pytest
-from agv_planner.gui.app import PathPlannerGUI
-from agv_planner.planning.algorithms import simplify_path, search_path, optimized_search, smooth_corners, adaptive_reduce_path
+
 from agv_planner.config.settings import load_settings
+from agv_planner.gui.app import PathPlannerGUI
+from agv_planner.planning.algorithms import (
+    adaptive_reduce_path,
+    optimized_search,
+    search_path,
+    simplify_path,
+    smooth_corners,
+)
 
 
 def test_entrypoint_module_invokes_main():
@@ -16,8 +24,8 @@ def test_entrypoint_module_invokes_main():
 
 
 def test_legacy_export_modules_importable():
-    import agv_planner.planner as planner
     import agv_planner.maps.occupancy as occupancy
+    import agv_planner.planner as planner
     assert callable(planner.main)
     assert callable(occupancy.inflate_free_grid)
 

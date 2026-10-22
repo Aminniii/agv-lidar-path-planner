@@ -1,8 +1,19 @@
 import math
+
 import numpy as np
-from agv_planner.core import (astar, search_path, optimized_search, inflate_free_grid,
-                              clear_segment, compact_path, mega_bridge_mix,
-                              mecanum_wheel_rates, mecanum_body_velocity)
+
+from agv_planner.core import (
+    astar,
+    clear_segment,
+    compact_path,
+    inflate_free_grid,
+    mecanum_body_velocity,
+    mecanum_wheel_rates,
+    mega_bridge_mix,
+    optimized_search,
+    search_path,
+)
+
 
 def test_planners_find_safe_route():
     grid = np.ones((20, 20), dtype=bool)

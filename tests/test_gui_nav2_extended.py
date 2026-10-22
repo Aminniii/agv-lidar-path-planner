@@ -1,9 +1,11 @@
 """Headless checks for ROS execution guards and route segmentation."""
+import time
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
-import time
-import pytest
+
 import numpy as np
+import pytest
+
 from agv_planner.gui.app import PathPlannerGUI
 from agv_planner.planning.safety import UnsafePathError
 

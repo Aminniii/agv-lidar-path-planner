@@ -1,7 +1,9 @@
 """Headless Nav2 lifecycle regression checks; no ROS or motor connections."""
 from types import SimpleNamespace as S
 from unittest.mock import Mock, patch
+
 import pytest
+
 from agv_planner.gui.app import PathPlannerGUI
 
 

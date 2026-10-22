@@ -1,9 +1,11 @@
 """Validated defaults; optional AGV_CONFIG_FILE points to user YAML."""
+import os
 from dataclasses import dataclass
 from importlib.resources import files
 from pathlib import Path
-import os
+
 import yaml
+
 
 @dataclass(frozen=True)
 class RobotSettings:

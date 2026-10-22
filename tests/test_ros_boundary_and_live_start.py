@@ -6,6 +6,7 @@ from unittest.mock import Mock, patch
 
 import numpy as np
 import pytest
+
 from agv_planner.gui.app import PathPlannerGUI
 from agv_planner.ros.support import load_ros_dependencies
 
