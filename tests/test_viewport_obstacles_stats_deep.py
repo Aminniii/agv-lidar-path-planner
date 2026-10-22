@@ -1,7 +1,6 @@
 """Headless regressions for viewport, virtual obstacles and route statistics."""
-import math
 from types import SimpleNamespace as NS
-from unittest.mock import Mock, patch
+from unittest.mock import Mock
 
 import numpy as np
 import pytest

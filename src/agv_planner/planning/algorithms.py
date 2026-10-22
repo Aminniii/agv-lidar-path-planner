@@ -2,7 +2,6 @@
 import heapq
 import math
 
-import numpy as np
 from scipy.ndimage import distance_transform_edt
 
 MEGA_TRANSLATION_GAIN = 3500.0

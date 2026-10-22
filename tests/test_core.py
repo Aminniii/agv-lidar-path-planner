@@ -1,16 +1,13 @@
-import math
 
 import numpy as np
 
 from agv_planner.core import (
     astar,
     clear_segment,
-    compact_path,
     inflate_free_grid,
     mecanum_body_velocity,
     mecanum_wheel_rates,
     mega_bridge_mix,
-    optimized_search,
     search_path,
 )
 

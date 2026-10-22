@@ -3,7 +3,6 @@ from types import SimpleNamespace as NS
 from unittest.mock import Mock, patch
 
 import numpy as np
-import pytest
 
 from agv_planner.gui import app
 

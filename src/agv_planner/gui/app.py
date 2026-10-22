@@ -1,4 +1,3 @@
-import heapq
 import itertools
 import math
 import time
@@ -15,10 +14,7 @@ from scipy.ndimage import distance_transform_edt
 from agv_planner.config.settings import load_settings
 from agv_planner.core import (
     adaptive_reduce_path,
-    angle_difference,
     approach,
-    astar,
-    clear_segment,
     compact_path,
     heuristic,
     inflate_free_grid,
@@ -26,7 +22,6 @@ from agv_planner.core import (
     mecanum_wheel_rates,
     mega_bridge_mix,
     optimized_search,
-    search_path,
     simplify_path,
     smooth_corners,
     virtual_mega_wheel_targets,
@@ -626,7 +621,6 @@ class PathPlannerGUI:
                                         new_pose[1]-self.robot_pose[1]) > 0.005 or
                              abs(math.atan2(math.sin(yaw-self.robot_pose[2]),
                                             math.cos(yaw-self.robot_pose[2]))) > 0.01)
-                    previous_pose = self.robot_pose
                     self.robot_pose = new_pose
                     self.last_tf_time = time.monotonic()
                     self.local_status.set("Localization: TF available (map → base_link)")
@@ -2048,7 +2042,6 @@ class PathPlannerGUI:
         self.sim_distance = 0.0
         self.sim_elapsed = 0.0
         self.sim_dwell_remaining = 0.0
-        first, second = self.sim_route[:2] if len(self.sim_route) > 1 else (self.sim_route[0], self.sim_route[0])
         initial_yaw = self.robot_pose[2] if self._nav2_pose_fresh() else 0.0
         self.sim_pose = (*self.sim_route[0], initial_yaw)
         self.sim_index = 1 if len(self.sim_route) > 1 else 0
@@ -2106,13 +2099,12 @@ class PathPlannerGUI:
             try:
                 vmax = max(.05, min(2., float(self.sim_speed_var.get())))
                 accel = max(.05, min(2., float(self.sim_accel_var.get())))
-                max_yaw = math.radians(max(15., min(360., float(self.sim_yaw_rate_var.get()))))
                 radius = max(.01, float(self.wheel_radius_var.get()))
                 lever = (max(.01, float(self.wheel_base_var.get())) +
                          max(.01, float(self.track_width_var.get()))) / 2.
                 wheel_accel = max(.1, float(self.wheel_accel_var.get()))
             except (ValueError, tk.TclError):
-                vmax, accel, max_yaw = .3, .35, math.pi/2
+                vmax, accel = .3, .35
                 radius, lever, wheel_accel = .04, .235, 20.
 
             x, y, yaw = self.sim_pose
