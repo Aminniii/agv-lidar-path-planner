@@ -1,7 +1,6 @@
 """Conservative occupancy-grid route verification (unknown cells are blocked)."""
 import math
 
-import numpy as np
 
 from .algorithms import clear_segment
 
